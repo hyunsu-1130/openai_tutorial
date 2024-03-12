@@ -19,11 +19,10 @@ MODEL = "gpt-3.5-turbo-1106"
 
 response = client.chat.completions.create(
   model=MODEL,
+  response_format={ "type": "json_object" },
   messages=[
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": "Who won the world series in 2020?"},
-    {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
-    {"role": "user", "content": "Where was it played?"}
+    {"role": "system", "content": "너는 고객의 만족도를 분석하는 로봇이야. 고객의 응답내용을 토대로 만족 또는 불만족을 구분해줘. You are a helpful assistant designed to output JSON."},
+    {"role": "user", "content": "오늘 구매한 컴퓨터는 소음이 심하고 가격에 비해서 느린 것 같아"},
   ]
 )
 
